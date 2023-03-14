@@ -1,8 +1,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Afrolatino.Data;
+using Afrolatino.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Attach an EF Core database context to each query
+builder.Services.AddDbContext<AfroLatinoContext>();
+
+SeedData.Init();
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

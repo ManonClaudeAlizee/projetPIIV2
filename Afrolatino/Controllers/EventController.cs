@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Afrolatino.Data;
 using Afrolatino.Models;
 
-namespace projetPII.Controllers;
+namespace Afrolatino.Controllers;
 
 public class EventController : Controller
 {
-    private readonly ApplicationDbContext _context;
+    private readonly AfroLatinoContext _context;
 
-    public EventController(ApplicationDbContext context)
+    public EventController(AfroLatinoContext context)
     {
         _context = context;
     }
