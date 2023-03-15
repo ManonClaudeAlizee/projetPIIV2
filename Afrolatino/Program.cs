@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Afrolatino.Data;
 using Afrolatino.Models;
+using Afrolatino.Areas.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ SeedData.Init();
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString)); builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
